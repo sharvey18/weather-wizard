@@ -1,5 +1,4 @@
-# weather-wizard
-Weather Wizard
+# Weather-Wizard
 
 Access current weather data for any location including over 200,000 cites
 
