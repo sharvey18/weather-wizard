@@ -30,6 +30,7 @@ header {
   display: flex;
   justify-content: center;
   align-content: center;
+  text-align: center;
 
   .title {
     font-size: 2.5rem;
@@ -57,9 +58,10 @@ section {
 span.country {
   color: $blueSapphire;
   font-weight: 900;
-  // margin-left: 1rem;
   img {
     margin: 0 1rem;
+    box-shadow: 2px 1px 50px 15px $white;
+    border: inset 5px $blueSapphire;
   }
 }
 
@@ -135,6 +137,12 @@ span.country {
     font-family: $amaranth;
     font-size: 1.5rem;
     margin-left: .5rem;
+  }
+
+  .showCity-icon {
+    color: $white;
+    font-size: 1.3rem;
+    margin-left: .25rem;
   }
 }
 
