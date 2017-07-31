@@ -1,12 +1,5 @@
 $(document).ready(function () {
 
-  // $.ajax({
-  //   url: "http://rest-service.guides.spring.io/greeting"
-  // }).then(function(data) {
-  //   $('.greeting-id').append(data.id);
-  //   $('.greeting-content').append(data.content);
-  // });
-
   $('#submitWeather').on('click', function() {
 
     var city = $('#city').val();
@@ -19,11 +12,15 @@ $(document).ready(function () {
         type: "GET",
         dataType: "jsonp",
         success: function(data) {
-          var widget = show(data);
+          var cityTitle = cityName(data);
+          var widget = showCity(data);
 
           $('#show').html(widget);
+          $('#city-title').html(cityTitle);
 
           $('#city').val('');
+
+          $('#error').html("");
 
         }
 
@@ -36,15 +33,20 @@ $(document).ready(function () {
   });
 });
 
-function show(data) {
-  return "<h2>Current Weather for " + data.name + ", "  + data.sys.country + "</h2>" +
-         "<h3><strong>Weather</strong>:" + data.weather[0].main + "</h3>" +
-         "<h3><strong>Description</strong>: <img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'> " + data.weather[0].description + "</h3>" +
-         "<h3><strong>Temperature</strong>:" + data.main.temp + "&deg;F</h3>" +
-         "<h3><strong>Pressure</strong>:" + data.main.pressure + "hPa</h3>" +
-         "<h3><strong>Humidity</strong>:" + data.main.humidity + "%</h3>" +
-         "<h3><strong>Min. Temperature</strong>:" + data.main.temp_min + "&deg;F</h3>" +
-         "<h3><strong>Max. Temperature</strong>:" + data.main.temp_max + "&deg;F</h3>" +
-         "<h3><strong>Wind Speed</strong>:" + data.wind.speed + "m/s</h3>" +
-         "<h3><strong>Wind Direction</strong>:" + data.wind.deg + "&deg;</h3>";
+function cityName(data) {
+  return "<div class='city-title'>" + data.name + "<span class='country'><img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png'>" + data.sys.country + "</span></div>";
+}
+
+function showCity(data) {
+  return "<div><span class='showCity-title'>Longitude:</span><span class='showCity-info'>" + data.coord.lon + "</span></div>" +
+         "<div><span class='showCity-title'>Lagitude:</span><span class='showCity-info'>" + data.coord.lat + "</span></div>" +
+         "<div><span class='showCity-title'>Weather:</span><span class='showCity-info'>" + data.weather[0].main + "</span></div>" +
+         "<div><span class='showCity-title'>Description:</span><span class='showCity-info'>" + data.weather[0].description + "</span></div>" +
+         "<div><span class='showCity-title'>Temperature:</span><span class='showCity-info'>" + data.main.temp + "<span class='showCity-icon'>&deg;F</span></span></div>" +
+         "<div><span class='showCity-title'>Pressure:</span><span class='showCity-info'>" + data.main.pressure + "<span class='showCity-icon'>hPa</span></span></div>" +
+         "<div><span class='showCity-title'>Humidity:</span><span class='showCity-info'>" + data.main.humidity + "<span class='showCity-icon'>%</span></span></div>" +
+         "<div><span class='showCity-title'>Min. Temperature:</span><span class='showCity-info'>" + data.main.temp_min + "<span class='showCity-icon'>&deg;F</span></span></div>" +
+         "<div><span class='showCity-title'>Max. Temperature:</span><span class='showCity-info'>" + data.main.temp_max + "<span class='showCity-icon'>&deg;F</span></span></div>" +
+         "<div><span class='showCity-title'>Wind Speed:</span><span class='showCity-info'>" + data.wind.speed + "<span class='showCity-icon'>m/s</span></span></div>" +
+         "<div><span class='showCity-title'>Wind Direction:</span><span class='showCity-info'>" + data.wind.deg + "<span class='showCity-icon'>&deg;</span></span></div>";
 }

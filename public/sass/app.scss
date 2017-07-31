@@ -1,3 +1,161 @@
+@import "partials/variables";
+
 body {
-  background: pink;
+  background: $richBlack;
+  padding: 0;
+  margin: 0;
 }
+
+html {
+  font-size: calc(1rem + 1vw);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  height: 15rem;
+  width: 100%;
+  background: url(../img/yellowstone.jpg);
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  .title {
+    font-size: 2.5rem;
+    color: $lightGray;
+    font-family: $francois;
+    text-shadow: 2px 2px 15px #000;
+    display: flex;
+    align-items: center;
+  }
+}
+
+section {
+  display: flex;
+}
+
+#city-title {
+  font-size: 3rem;
+  color: $white;
+  font-family: $francois;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span.country {
+  color: $blueSapphire;
+  font-weight: 900;
+  // margin-left: 1rem;
+  img {
+    margin: 0 1rem;
+  }
+}
+
+.buttons-container {
+  width: 25%;
+  background: $blueSapphire;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  #city {
+    padding: 1rem;
+    font-size: .7rem;
+    display: flex;
+    width: 100%;
+    margin-bottom: .5rem;
+  }
+  #submitWeather {
+    color: $white;
+    padding: 1rem;
+    background: transparent;
+    border: 3px solid $blackOlive;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .09rem;
+
+    &:hover {
+      color: $white;
+      background: $richBlack;
+      cursor: pointer;
+      transition: $ease;
+    }
+  }
+
+  #error {
+    font-size: 1rem;
+    background: red;
+    color: $white;
+    width: 100%;
+    line-height: 2rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+  }
+}
+
+.show-container {
+  background: $blackOlive;
+  width: 75%;
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+
+  .city-title {
+    font-size: 2.5rem;
+    color: $white;
+    font-family: $amaranth;
+  }
+
+  .showCity-title {
+    color: $white;
+    font-family: $amaranth;
+    font-size: 1.5rem;
+  }
+
+  .showCity-info {
+    color: $blueSapphire;
+    font-family: $amaranth;
+    font-size: 1.5rem;
+    margin-left: .5rem;
+  }
+}
+
+footer {
+  background: $richBlack;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  font-family: $amaranth;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  a {
+    color: $blueSapphire;
+  }
+  a:nth-of-type(2) {
+    font-size: .5rem;
+    margin-top: .25rem;
+  }
+}
+
+@import "partials/responsive";
