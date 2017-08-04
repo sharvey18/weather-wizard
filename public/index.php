@@ -8,23 +8,35 @@
   </head>
   <body>
     <?php require ("includes/header.php"); ?>
+      <section class="currentWeather">
 
-    <div id="city-title"></div>
+        <div id="city-title"></div>
 
-    <!-- city weather -->
-    <section>
+        <div class="buttons-container">
+          <div id="error"></div>
+          <input type="text" name="city" id="city" placeholder="Enter City Name">
+          <button type="button" name="button" id="submitWeather">Search City</button>
+        </div>
 
-      <div class="buttons-container">
-        <div id="error"></div>
-        <input type="text" name="city" id="city" placeholder="City Name">
-        <button type="button" name="button" id="submitWeather">Search City</button>
-      </div>
+        <div class="show-container">
+          <div id="show"></div>
+        </div>
 
-      <div class="show-container">
-        <div id="show"></div>
-      </div>
+      </section>
 
-    </section>
+      <section class="forecastWeather">
+
+        <div class="ajax-container">
+          <input type="text" name="cityCall" id="cityCall" placeholder="Enter City Name">
+          <button type="button" name="button" id="btnAjaxCall">Get Forecast</button>
+        </div>
+
+        <div class="showforecast-container">
+          <div class="display-city"></div>
+          <div class="display-data"></div>
+        </div>
+
+      </section>
 
     <?php require ("includes/footer.php"); ?>
 
