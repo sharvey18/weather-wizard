@@ -2,3 +2,4 @@ vagrant.yml
 Vagrantfile
 .vagrant
 info.php
+*.zip
